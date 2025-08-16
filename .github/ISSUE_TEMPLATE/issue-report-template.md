@@ -1,12 +1,3 @@
----
-name: Issue report template
-about: Report a bug or issue
-title: "[ISSUE]"
-labels: bug
-assignees: ''
-
----
-
 name: Bug Report
 description: Report a bug
 labels: ["bug"]

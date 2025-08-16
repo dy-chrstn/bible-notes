@@ -1,12 +1,3 @@
----
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
----
-
 name: New feature
 description: Suggest or request a new feature
 labels: ["enhancement"]
@@ -33,12 +24,6 @@ body:
       label: Additional context
       placeholder: |
         Add any other context or screenshots about the feature request here.
-  - type: dropdown
-    id: assign
-    attributes:
-      label: "Would you like to work on this issue?"
-      options:
-        - "Yes"
   - type: markdown
     attributes:
       value: |

@@ -8,8 +8,20 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Settings Screen'),
+        ListTile(
+          leading: Icon(Icons.dark_mode),
+          title: Text('Theme'),
+        ),
+        ListTile(
+          leading: Icon(Icons.translate),
+          title: Text('Bible Translation'),
+          trailing: Icon(
+            Icons.arrow_forward_ios,
+            size: 16,
+          ),
+        ),
       ],
     );
   }

@@ -7,8 +7,8 @@ import 'package:go_router/go_router.dart';
 
 const String homeRoutePath = '/';
 const String bibleSearchVerseRoutePath = '/bible-search-verse';
-const String settingsRoutePath = '/settings';
 const String noteListRoutePath = '/notes';
+const String settingsRoutePath = '/settings';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -23,12 +23,15 @@ final router = GoRouter(
       builder: (context, state, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(switch (state.matchedLocation) {
-              homeRoutePath => 'Home',
-              settingsRoutePath => 'Settings',
-              noteListRoutePath => 'Notes',
-              _ => '',
-            }),
+            title: Text(
+              switch (state.matchedLocation) {
+                homeRoutePath => 'Home',
+                bibleSearchVerseRoutePath => 'Bible',
+                settingsRoutePath => 'Settings',
+                noteListRoutePath => 'Notes',
+                _ => '',
+              },
+            ),
           ),
           drawer: Drawer(
             child: Column(
@@ -44,20 +47,28 @@ final router = GoRouter(
                   ),
                 ),
                 ListTile(
+                  leading: const Icon(Icons.home),
                   title: const Text('Home'),
-                  onTap: () => context.go(homeRoutePath),
+                  onTap: () => _onTapItem(context, homeRoutePath),
                 ),
                 ListTile(
                   title: const Text('Bible'),
                   onTap: () => context.go(bibleSearchVerseRoutePath),
                 ),
                 ListTile(
-                  title: const Text('Settings'),
-                  onTap: () => context.go(settingsRoutePath),
+                  leading: const Icon(Icons.book),
+                  title: const Text('Bible'),
+                  onTap: () => _onTapItem(context, bibleSearchVerseRoutePath),
                 ),
                 ListTile(
+                  leading: const Icon(Icons.note),
                   title: const Text('Notes'),
-                  onTap: () => context.go(noteListRoutePath),
+                  onTap: () => _onTapItem(context, noteListRoutePath),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Settings'),
+                  onTap: () => _onTapItem(context, settingsRoutePath),
                 ),
               ],
             ),
@@ -90,3 +101,8 @@ final router = GoRouter(
     ),
   ],
 );
+
+_onTapItem(BuildContext context, String path) {
+  context.pop();
+  context.go(path);
+}

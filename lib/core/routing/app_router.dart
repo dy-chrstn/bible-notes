@@ -52,10 +52,6 @@ final router = GoRouter(
                   onTap: () => _onTapItem(context, homeRoutePath),
                 ),
                 ListTile(
-                  title: const Text('Bible'),
-                  onTap: () => context.go(bibleSearchVerseRoutePath),
-                ),
-                ListTile(
                   leading: const Icon(Icons.book),
                   title: const Text('Bible'),
                   onTap: () => _onTapItem(context, bibleSearchVerseRoutePath),

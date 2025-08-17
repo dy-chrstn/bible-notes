@@ -1,3 +1,4 @@
+import 'package:bible_notes/features/bible/screens/bible_search_verse.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_list.screen.dart';
 import 'package:bible_notes/features/settings/screens/settings.screen.dart';
 import 'package:bible_notes/home.screen.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 const String homeRoutePath = '/';
+const String bibleSearchVerseRoutePath = '/bible-search-verse';
 const String settingsRoutePath = '/settings';
 const String noteListRoutePath = '/notes';
 
@@ -46,13 +48,17 @@ final router = GoRouter(
                   onTap: () => context.go(homeRoutePath),
                 ),
                 ListTile(
+                  title: const Text('Bible'),
+                  onTap: () => context.go(bibleSearchVerseRoutePath),
+                ),
+                ListTile(
                   title: const Text('Settings'),
                   onTap: () => context.go(settingsRoutePath),
                 ),
                 ListTile(
                   title: const Text('Notes'),
                   onTap: () => context.go(noteListRoutePath),
-                )
+                ),
               ],
             ),
           ),
@@ -64,6 +70,11 @@ final router = GoRouter(
           name: HomeScreen.routeName,
           path: homeRoutePath,
           builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          name: BibleSearchVerseScreen.routeName,
+          path: bibleSearchVerseRoutePath,
+          builder: (context, state) => const BibleSearchVerseScreen(),
         ),
         GoRoute(
           name: SettingsScreen.routeName,

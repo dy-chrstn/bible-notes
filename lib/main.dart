@@ -1,5 +1,5 @@
+import 'package:bible_notes/core/routing/app_router.dart';
 import 'package:bible_notes/core/theme/app_theme.dart';
-import 'package:bible_notes/home.screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +11,12 @@ class BibleNotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: const HomeScreen(),
+      routerConfig: router,
     );
   }
 }

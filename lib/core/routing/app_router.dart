@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 const String homeRoutePath = '/';
-const String bibleSearchVerseRoutePath = '/bible';
+const String bibleSearchVerseRoutePath = '/bible-search-verse';
 const String noteListRoutePath = '/notes';
 const String settingsRoutePath = '/settings';
 
@@ -50,6 +50,10 @@ final router = GoRouter(
                   leading: const Icon(Icons.home),
                   title: const Text('Home'),
                   onTap: () => _onTapItem(context, homeRoutePath),
+                ),
+                ListTile(
+                  title: const Text('Bible'),
+                  onTap: () => context.go(bibleSearchVerseRoutePath),
                 ),
                 ListTile(
                   leading: const Icon(Icons.book),

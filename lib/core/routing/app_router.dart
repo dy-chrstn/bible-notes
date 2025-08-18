@@ -69,7 +69,10 @@ final router = GoRouter(
               ],
             ),
           ),
-          body: child,
+          body: ColoredBox(
+            color: Colors.white,
+            child: child,
+          ),
         );
       },
       routes: [

@@ -1,4 +1,3 @@
-import 'package:bible_notes/core/routing/app_router.dart';
 import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

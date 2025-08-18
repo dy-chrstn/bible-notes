@@ -25,16 +25,18 @@ class BibleBookTab extends StatelessWidget {
               separatorBuilder: (_, index) => const Divider(height: 0),
               itemBuilder: (_, index) {
                 final isSelected = index == 2;
-                return ListTile(
-                  tileColor: isSelected ? Theme.of(context).colorScheme.primary : null,
-                  title: Text(
-                    'Genesis',
-                    style: isSelected ? Theme.of(context).primaryTextTheme.titleLarge : null,
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: isSelected ? Colors.white : null,
+                return Material(
+                  child: ListTile(
+                    tileColor: isSelected ? Theme.of(context).colorScheme.primary : null,
+                    title: Text(
+                      'Genesis',
+                      style: isSelected ? Theme.of(context).primaryTextTheme.titleLarge : null,
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: isSelected ? Colors.white : null,
+                    ),
                   ),
                 );
               }),
@@ -55,16 +57,18 @@ class BibleBookTab extends StatelessWidget {
             separatorBuilder: (_, index) => const Divider(height: 0),
             itemBuilder: (_, index) {
               final isSelected = index == 2;
-              return ListTile(
-                tileColor: isSelected ? Theme.of(context).colorScheme.primary : null,
-                title: Text(
-                  'Matthew',
-                  style: isSelected ? Theme.of(context).primaryTextTheme.titleLarge : null,
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16,
-                  color: isSelected ? Colors.white : null,
+              return Material(
+                child: ListTile(
+                  tileColor: isSelected ? Theme.of(context).colorScheme.primary : null,
+                  title: Text(
+                    'Matthew',
+                    style: isSelected ? Theme.of(context).primaryTextTheme.titleLarge : null,
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: isSelected ? Colors.white : null,
+                  ),
                 ),
               );
             },

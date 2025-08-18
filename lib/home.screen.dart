@@ -1,4 +1,7 @@
+import 'package:bible_notes/core/routing/app_router.dart';
+import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             subtitle: const LinearProgressIndicator(value: 0.6),
           ),
           FilledButton(
-            onPressed: () {},
+            onPressed: () => context.pushNamed(BibleReadingScreen.routeName),
             child: const Text('Continue Reading'),
           ),
           const Divider(height: 48),

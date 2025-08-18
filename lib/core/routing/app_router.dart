@@ -1,3 +1,4 @@
+import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:bible_notes/features/bible/screens/bible_search_verse.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_list.screen.dart';
 import 'package:bible_notes/features/settings/screens/settings.screen.dart';
@@ -9,6 +10,7 @@ const String homeRoutePath = '/';
 const String bibleSearchVerseRoutePath = '/bible-search-verse';
 const String noteListRoutePath = '/notes';
 const String settingsRoutePath = '/settings';
+const String bibleReadingRoutePath = '/bible-reading';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -70,7 +72,7 @@ final router = GoRouter(
             ),
           ),
           body: ColoredBox(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             child: child,
           ),
         );
@@ -97,6 +99,11 @@ final router = GoRouter(
           builder: (context, state) => const NoteListScreen(),
         ),
       ],
+    ),
+    GoRoute(
+      path: bibleReadingRoutePath,
+      name: BibleReadingScreen.routeName,
+      builder: (context, state) => const BibleReadingScreen(),
     ),
   ],
 );

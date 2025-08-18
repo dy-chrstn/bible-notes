@@ -1,4 +1,6 @@
+import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BibleVerseTab extends StatelessWidget {
   const BibleVerseTab({super.key});
@@ -14,12 +16,15 @@ class BibleVerseTab extends StatelessWidget {
         40,
         (i) {
           final isSelected = i == 5;
-          return Card.outlined(
-            color: isSelected ? Theme.of(context).colorScheme.primary : null,
-            child: Center(
-              child: Text(
-                '${i + 1}',
-                style: isSelected ? Theme.of(context).primaryTextTheme.titleMedium : null,
+          return GestureDetector(
+            onTap: () => context.pushNamed(BibleReadingScreen.routeName),
+            child: Card.outlined(
+              color: isSelected ? Theme.of(context).colorScheme.primary : null,
+              child: Center(
+                child: Text(
+                  '${i + 1}',
+                  style: isSelected ? Theme.of(context).primaryTextTheme.titleMedium : null,
+                ),
               ),
             ),
           );

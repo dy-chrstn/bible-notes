@@ -2,6 +2,7 @@ import 'package:bible_notes/core/utils/app_enum.dart';
 import 'package:bible_notes/features/bible/widgets/background_color_button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BibleReadingScreen extends StatefulWidget {
   const BibleReadingScreen({super.key});
@@ -179,7 +180,9 @@ class _BibleReadingScreenState extends State<BibleReadingScreen> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text('Font Family'),
+                      const Text(
+                        'Font Family',
+                      ),
                       const SizedBox(width: 24),
                       ListView.separated(
                         shrinkWrap: true,
@@ -191,7 +194,18 @@ class _BibleReadingScreenState extends State<BibleReadingScreen> {
                           final fontFamily = FontFamily.values[index];
 
                           return ChoiceChip(
-                            label: Text(fontFamily.text),
+                            label: Text(
+                              fontFamily.text,
+                              style: TextStyle(
+                                fontFamily: switch (fontFamily) {
+                                  FontFamily.notoSerif => GoogleFonts.notoSerif().fontFamily,
+                                  FontFamily.openSans => GoogleFonts.openSans().fontFamily,
+                                  FontFamily.ebGaramond => GoogleFonts.ebGaramond().fontFamily,
+                                  FontFamily.lexend => GoogleFonts.lexend().fontFamily,
+                                  FontFamily.playfairDisplay => GoogleFonts.playfairDisplay().fontFamily,
+                                },
+                              ),
+                            ),
                             selected: _selectedFontFamily == fontFamily,
                             onSelected: (_) => modalSetState(() => _selectedFontFamily = fontFamily),
                           );

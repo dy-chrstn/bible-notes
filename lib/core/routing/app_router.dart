@@ -1,6 +1,7 @@
 import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:bible_notes/features/bible/screens/bible_search_verse.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_list.screen.dart';
+import 'package:bible_notes/features/notes/screens/note_view.screen.dart';
 import 'package:bible_notes/features/settings/screens/settings.screen.dart';
 import 'package:bible_notes/home.screen.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:go_router/go_router.dart';
 const String homeRoutePath = '/';
 const String bibleSearchVerseRoutePath = '/bible-search-verse';
 const String noteListRoutePath = '/notes';
+const String noteViewRoutePath = '/note-view';
 const String settingsRoutePath = '/settings';
 const String bibleReadingRoutePath = '/bible-reading';
 
@@ -40,11 +42,11 @@ final router = GoRouter(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ColoredBox(
-                  color: Theme.of(context).colorScheme.primaryContainer,
+                  color: Theme.of(context).primaryColor,
                   child: DrawerHeader(
                     child: Text(
                       'Bible Notes',
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: Theme.of(context).primaryTextTheme.titleLarge,
                     ),
                   ),
                 ),
@@ -104,6 +106,13 @@ final router = GoRouter(
       path: bibleReadingRoutePath,
       name: BibleReadingScreen.routeName,
       builder: (context, state) => const BibleReadingScreen(),
+    ),
+    GoRoute(
+      name: NoteViewScreen.routeName,
+      path: '$noteViewRoutePath/:id',
+      builder: (context, state) => NoteViewScreen(
+        id: int.parse(state.pathParameters['id']!),
+      ),
     ),
   ],
 );

@@ -10,33 +10,36 @@ class NoteListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MasonryGridView.count(
-      padding: const EdgeInsets.all(16),
-      crossAxisCount: 2,
-      mainAxisSpacing: 8,
-      crossAxisSpacing: 8,
-      itemCount: 20,
-      itemBuilder: (context, index) => GestureDetector(
-        onTap: () => context.pushNamed(NoteViewScreen.routeName, pathParameters: {'id': '$index'}),
-        behavior: HitTestBehavior.opaque,
-        child: Card.outlined(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Title ${index + 1}',
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                ...List.generate(
-                  index + 1,
-                  (i) => Text(
-                    'Text ${i + 1}',
+    return ColoredBox(
+      color: Theme.of(context).colorScheme.surface,
+      child: MasonryGridView.count(
+        padding: const EdgeInsets.all(16),
+        crossAxisCount: 2,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        itemCount: 20,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () => context.pushNamed(NoteViewScreen.routeName, pathParameters: {'id': '$index'}),
+          behavior: HitTestBehavior.opaque,
+          child: Card.outlined(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Title ${index + 1}',
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                )
-              ],
+                  const SizedBox(height: 8),
+                  ...List.generate(
+                    index + 1,
+                    (i) => Text(
+                      'Text ${i + 1}',
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

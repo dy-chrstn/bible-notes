@@ -1,3 +1,4 @@
+import 'package:bible_notes/core/routing/route_transitions.dart';
 import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:bible_notes/features/bible/screens/bible_search_verse.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_list.screen.dart';
@@ -73,32 +74,49 @@ final router = GoRouter(
               ],
             ),
           ),
-          body: ColoredBox(
-            color: Theme.of(context).colorScheme.surface,
-            child: child,
-          ),
+          body: child,
         );
       },
       routes: [
         GoRoute(
           name: HomeScreen.routeName,
           path: homeRoutePath,
-          builder: (context, state) => const HomeScreen(),
+          // builder: (context, state) => const HomeScreen(),
+          pageBuilder: (context, state) => slideTransition(
+            context: context,
+            state: state,
+            child: const HomeScreen(),
+          ),
         ),
         GoRoute(
           name: BibleSearchVerseScreen.routeName,
           path: bibleSearchVerseRoutePath,
-          builder: (context, state) => const BibleSearchVerseScreen(),
+          // builder: (context, state) => const BibleSearchVerseScreen(),
+          pageBuilder: (context, state) => slideTransition(
+            context: context,
+            state: state,
+            child: const BibleSearchVerseScreen(),
+          ),
         ),
         GoRoute(
           name: SettingsScreen.routeName,
           path: settingsRoutePath,
-          builder: (context, state) => const SettingsScreen(),
+          // builder: (context, state) => const SettingsScreen(),
+          pageBuilder: (context, state) => slideTransition(
+            context: context,
+            state: state,
+            child: const SettingsScreen(),
+          ),
         ),
         GoRoute(
           name: NoteListScreen.routeName,
           path: noteListRoutePath,
-          builder: (context, state) => const NoteListScreen(),
+          // builder: (context, state) => const NoteListScreen(),
+          pageBuilder: (context, state) => slideTransition(
+            context: context,
+            state: state,
+            child: const NoteListScreen(),
+          ),
         ),
       ],
     ),

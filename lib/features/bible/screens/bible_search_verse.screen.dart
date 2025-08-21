@@ -31,23 +31,26 @@ class _BibleSearchVerseScreenState extends State<BibleSearchVerseScreen> with Ti
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TabBar(
-          controller: tabController,
-          tabs: BibleSearchTabs.values.map((el) => Tab(text: el.name.toCapitalize())).toList(),
-        ),
-        Expanded(
-          child: TabBarView(
+    return ColoredBox(
+      color: Theme.of(context).colorScheme.surface,
+      child: Column(
+        children: [
+          TabBar(
             controller: tabController,
-            children: const [
-              BibleBookTab(),
-              BibleChapterTab(),
-              BibleVerseTab(),
-            ],
+            tabs: BibleSearchTabs.values.map((el) => Tab(text: el.name.toCapitalize())).toList(),
           ),
-        ),
-      ],
+          Expanded(
+            child: TabBarView(
+              controller: tabController,
+              children: const [
+                BibleBookTab(),
+                BibleChapterTab(),
+                BibleVerseTab(),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

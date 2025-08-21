@@ -1,6 +1,7 @@
 import 'package:bible_notes/core/routing/route_transitions.dart';
 import 'package:bible_notes/features/bible/screens/bible_reading.screen.dart';
 import 'package:bible_notes/features/bible/screens/bible_search_verse.screen.dart';
+import 'package:bible_notes/features/bible/screens/bookmark_list.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_list.screen.dart';
 import 'package:bible_notes/features/notes/screens/note_view.screen.dart';
 import 'package:bible_notes/features/settings/screens/settings.screen.dart';
@@ -14,6 +15,7 @@ const String noteListRoutePath = '/notes';
 const String noteViewRoutePath = '/note-view';
 const String settingsRoutePath = '/settings';
 const String bibleReadingRoutePath = '/bible-reading';
+const String bookmarkListRoutePath = '/bookmark-list';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -32,6 +34,7 @@ final router = GoRouter(
               switch (state.matchedLocation) {
                 homeRoutePath => 'Home',
                 bibleSearchVerseRoutePath => 'Bible',
+                bookmarkListRoutePath => 'Bookmarks',
                 settingsRoutePath => 'Settings',
                 noteListRoutePath => 'Notes',
                 _ => '',
@@ -60,6 +63,11 @@ final router = GoRouter(
                   leading: const Icon(Icons.book),
                   title: const Text('Bible'),
                   onTap: () => _onTapItem(context, bibleSearchVerseRoutePath),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.bookmark),
+                  title: const Text('Bookmarks'),
+                  onTap: () => _onTapItem(context, bookmarkListRoutePath),
                 ),
                 ListTile(
                   leading: const Icon(Icons.note),
@@ -96,6 +104,16 @@ final router = GoRouter(
             context: context,
             state: state,
             child: const BibleSearchVerseScreen(),
+          ),
+        ),
+        GoRoute(
+          name: BookmarkListScreen.routeName,
+          path: bookmarkListRoutePath,
+          // builder: (context, state) => const BibleSearchVerseScreen(),
+          pageBuilder: (context, state) => slideTransition(
+            context: context,
+            state: state,
+            child: const BookmarkListScreen(),
           ),
         ),
         GoRoute(
